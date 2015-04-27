@@ -1,0 +1,10 @@
+*.pyc
+*~
+*.egg-info
+*.mo
+*.egg
+*.png
+*.jpg
+*.jpeg
+db.py
+.DS_Store

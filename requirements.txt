@@ -1,0 +1,13 @@
+Django==1.7.1
+<<<<<<< HEAD
+MySQL-python==1.2.5
+Pillow==2.7.0
+.........................
+gunicorn==19.2.1
+psycopg2==2.4.1
+.........................
+=======
+Pillow
+MySQL-python
+django-crispy-forms==1.4.0
+>>>>>>> part 8 upto student edit form p344
