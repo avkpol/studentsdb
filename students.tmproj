@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>currentDocument</key>
-	<string>students/admin.py</string>
+	<string>students/views/contact_admin.py</string>
 	<key>documents</key>
 	<array>
 		<dict>
@@ -25,8 +25,6 @@
 			<key>children</key>
 			<array>
 				<dict>
-					<key>expanded</key>
-					<true/>
 					<key>name</key>
 					<string>src</string>
 					<key>regexFolderFilter</key>
@@ -35,8 +33,6 @@
 					<string>..</string>
 				</dict>
 			</array>
-			<key>expanded</key>
-			<true/>
 			<key>name</key>
 			<string>studentsdb</string>
 		</dict>
@@ -44,8 +40,6 @@
 			<key>children</key>
 			<array>
 				<dict>
-					<key>expanded</key>
-					<true/>
 					<key>name</key>
 					<string>Code</string>
 					<key>regexFolderFilter</key>
@@ -54,8 +48,6 @@
 					<string>/Volumes/Storage/Django_Recommended/Code</string>
 				</dict>
 			</array>
-			<key>expanded</key>
-			<true/>
 			<key>name</key>
 			<string>code</string>
 		</dict>
@@ -63,8 +55,6 @@
 			<key>children</key>
 			<array>
 				<dict>
-					<key>expanded</key>
-					<true/>
 					<key>name</key>
 					<string>studentsdb</string>
 					<key>regexFolderFilter</key>
@@ -73,8 +63,6 @@
 					<string>/Volumes/Storage/data_foldef-Mac/data/work/virtualenvs/studentsdb/src/studentsdb</string>
 				</dict>
 			</array>
-			<key>expanded</key>
-			<true/>
 			<key>name</key>
 			<string>studentsdb_storage</string>
 		</dict>
@@ -141,20 +129,6 @@
 				<integer>0</integer>
 			</dict>
 		</dict>
-		<key>/Volumes/Storage/downloads_storage/django-contact-form-1.0/contact_form/urls.py</key>
-		<dict>
-			<key>caret</key>
-			<dict>
-				<key>column</key>
-				<integer>0</integer>
-				<key>line</key>
-				<integer>0</integer>
-			</dict>
-			<key>firstVisibleColumn</key>
-			<integer>0</integer>
-			<key>firstVisibleLine</key>
-			<integer>0</integer>
-		</dict>
 		<key>/Volumes/Storage/downloads_storage/django-contact-form-1.0/contact_form/views.py</key>
 		<dict>
 			<key>caret</key>
@@ -196,20 +170,6 @@
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
 			<integer>0</integer>
-		</dict>
-		<key>students/templates/students/base.html</key>
-		<dict>
-			<key>caret</key>
-			<dict>
-				<key>column</key>
-				<integer>31</integer>
-				<key>line</key>
-				<integer>61</integer>
-			</dict>
-			<key>firstVisibleColumn</key>
-			<integer>0</integer>
-			<key>firstVisibleLine</key>
-			<integer>56</integer>
 		</dict>
 		<key>students/templates/students/exam_list.html</key>
 		<dict>
@@ -258,14 +218,44 @@
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>0</integer>
+				<integer>3</integer>
 				<key>line</key>
-				<integer>0</integer>
+				<integer>65</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
-			<integer>48</integer>
+			<integer>37</integer>
+		</dict>
+		<key>students/views/forms.py</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>12</integer>
+				<key>line</key>
+				<integer>8</integer>
+			</dict>
+			<key>columnSelection</key>
+			<false/>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>0</integer>
+			<key>selectFrom</key>
+			<dict>
+				<key>column</key>
+				<integer>0</integer>
+				<key>line</key>
+				<integer>2</integer>
+			</dict>
+			<key>selectTo</key>
+			<dict>
+				<key>column</key>
+				<integer>12</integer>
+				<key>line</key>
+				<integer>8</integer>
+			</dict>
 		</dict>
 		<key>students/views/students.py</key>
 		<dict>
@@ -281,33 +271,19 @@
 			<key>firstVisibleLine</key>
 			<integer>0</integer>
 		</dict>
-		<key>studentsdb/settings.py</key>
-		<dict>
-			<key>caret</key>
-			<dict>
-				<key>column</key>
-				<integer>0</integer>
-				<key>line</key>
-				<integer>0</integer>
-			</dict>
-			<key>firstVisibleColumn</key>
-			<integer>0</integer>
-			<key>firstVisibleLine</key>
-			<integer>0</integer>
-		</dict>
 		<key>studentsdb/urls.py</key>
 		<dict>
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>0</integer>
+				<integer>40</integer>
 				<key>line</key>
-				<integer>33</integer>
+				<integer>44</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
-			<integer>0</integer>
+			<integer>24</integer>
 		</dict>
 	</dict>
 	<key>openDocuments</key>
@@ -315,22 +291,17 @@
 		<string>students/views/students.py</string>
 		<string>manage.py</string>
 		<string>students/views/contact_admin.py</string>
+		<string>students/views/forms.py</string>
 		<string>studentsdb/urls.py</string>
 		<string>/Volumes/Storage/Django_Recommended/Code/chapter8_forms/students/admin.py</string>
 		<string>students/admin.py</string>
 		<string>/Volumes/Storage/data_foldef-Mac/data/work/virtualenvs/studentsdb/src/studentsdb/students/admin.py</string>
 		<string>/Volumes/Storage/Django_Recommended/Code/chapter8_forms/studentsdb/urls.py</string>
-		<string>studentsdb/settings.py</string>
-		<string>students/templates/students/base.html</string>
-		<string>students/templates/students/students_add.html</string>
-		<string>students/templates/students/groups_list.html</string>
-		<string>students/templates/students/exam_list.html</string>
-		<string>/Volumes/Storage/downloads_storage/django-contact-form-1.0/contact_form/urls.py</string>
 		<string>/Volumes/Storage/downloads_storage/django-contact-form-1.0/contact_form/views.py</string>
 	</array>
 	<key>showFileHierarchyDrawer</key>
 	<true/>
 	<key>windowFrame</key>
-	<string>{{307, 219}, {998, 552}}</string>
+	<string>{{304, 219}, {966, 552}}</string>
 </dict>
 </plist>
