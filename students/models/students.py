@@ -37,7 +37,7 @@ class Student(models.Model):
 	    verbose_name=u"Група",
 	    blank=False,
 	    null=True,
-	    on_delete=models.PROTECT)
+	    on_delete=models.SET_NULL)    # original:     on_delete=models.PROTECT)
 	notes =models.TextField(
 		blank=True,
 		verbose_name=u"Нотатки")

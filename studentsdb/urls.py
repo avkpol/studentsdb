@@ -2,6 +2,7 @@ from django.conf.urls import patterns, include, url
 from django.contrib import admin
 from students.views.students import StudentUpdateView
 from students.views.students import StudentDeleteView
+from students.views.groups import GroupDeleteView
 urlpatterns = patterns('',
     # Students urls
     url(r'^$', 'students.views.students.students_list', name='home'),
@@ -26,8 +27,8 @@ urlpatterns = patterns('',
          name='groups_add'),
     url(r'^groups/(?P<gid>\d+)/edit/$', 'students.views.groups.groups_edit',
          name='groups_edit'),
-    url(r'^groups/(?P<gid>\d+)/delete/$', 'students.views.groups.groups_delete',
-         name='groups_delete'),
+    url(r'^groups/(?P<pk>\d+)/delete/$',GroupDeleteView.as_view(),
+         name='group_delete'),
          
          
     #Journal urls
