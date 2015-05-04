@@ -5,7 +5,7 @@ from django.http import HttpResponse ,HttpResponseRedirect
 from django.core.urlresolvers import reverse
 from django.core.paginator import Paginator,EmptyPage,PageNotAnInteger
 from datetime import datetime  
-from django.views.generic import UpdateView
+from django.views.generic import UpdateView, DeleteView
 from django.forms import ModelForm
 
 from ..models.students import Student
@@ -56,9 +56,13 @@ class StudentUpdateView(UpdateView):
 				% reverse('home'))
 		else:
 			return super(StudentUpdateView, self).post(request, *args, **kwargs)
-		
-
-
+			
+class StudentDeleteView(DeleteView):
+	model=Student
+	template_name = 'students/students_confirm_delete.html'
+	def get_success_url(self):
+		return u'%s?status_message= Студента успішно видалено!'% reverse('home')
+			
 def students_list(request):
     students = Student.objects.all()
 
