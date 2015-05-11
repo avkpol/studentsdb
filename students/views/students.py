@@ -11,10 +11,10 @@ from django.forms import ModelForm
 from ..models.students import Student
 from ..models.groups import Group
 
-from crispy_forms.helper import FormHelper
-from crispy_forms.layout import Submit
-from crispy_forms.bootstrap import FormActions
-
+# from crispy_forms.helper import FormHelper
+# from crispy_forms.layout import Submit
+# from crispy_forms.bootstrap import FormActions
+''''
 class StudentUpdateForm(ModelForm):
 	class Meta: # determine features of model
 		model = Student
@@ -40,12 +40,12 @@ class StudentUpdateForm(ModelForm):
 			Submit('add_button', u'Зберегти',css_class = 'btn btn-primary'),
 			Submit('cancel_button',u'Скасувати', css_class ='btn btn-link'),
 			)
-
+'''
 
 class StudentUpdateView(UpdateView):
 	model= Student
 	template_name = 'students/students_edit.html'
-	form_class = StudentUpdateForm 
+	#form_class = StudentUpdateForm 
 	
 	def get_success_url(self):
 		return u'%s?status_message= Студента успішно збережено!'% reverse('home')

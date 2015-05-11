@@ -8,7 +8,7 @@
 
 {% block content %}
 <a href="{% url "students_add" %}" class="btn btn-primary">Додати Студента</a>
-
+<a href="{% url "students_add"  %}" class="btn btn-info">Видалити Студента</a>
 <!-- Start Students Listing -->
 <table class="table">
 	{% with order_by=request.GET.order_by reverse=request.GET.reverse %}
@@ -16,6 +16,9 @@
 		<tr>
 			<th>#</th> 
 			<th>Фото</th> <th>
+				
+				
+				
 			<a href="{% url "home" %}?order_by=last_name{% if order_by == 'last_name' and reverse != '1' %}&amp;reverse=1{% endif %}">
 			Прізвище
 			{% if order_by == 'last_name' and reverse != '1' %}&uarr; 
@@ -43,6 +46,7 @@
   <tbody>
     {% for student in students %}
     <tr>
+	
       <td>{{ forloop.counter }}</td>
       <td>	{% if student.photo %}
       		<img class="img-circle" src="{{ student.photo.url }}" height="30" width="30" />
@@ -50,7 +54,12 @@
       		<img class ="img.circle" src = "{% static "img/default_user.png" %}" height="30" width="30" />
       		{% endif %}
       		</td>
-      <td><a href="{% url "students_edit" student.id %}">{{ student.last_name }}</td>
+			
+        <td><a href="{% url "students_edit" student.id %}">
+			<label class="checkbox inline">
+			<input type="checkbox" id="inlineCheckbox1" value="option2"> 
+			</label>{{ student.last_name }}
+		</td>
       <td><a href="{% url "students_edit" student.id %}">{{ student.first_name }}</td>
       <td>{{ student.ticket }}</td>
       <td>
