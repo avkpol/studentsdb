@@ -10,10 +10,37 @@ from django.forms import ModelForm
 
 from ..models.students import Student
 from ..models.groups import Group
+from django.forms.fields import BooleanField
+
+from django.forms.widgets import CheckboxInput
 
 # from crispy_forms.helper import FormHelper
 # from crispy_forms.layout import Submit
 # from crispy_forms.bootstrap import FormActions
+
+class CheckboxWidget(CheckboxInput):
+	def render(self, name, value ,attrs=None):
+		final_attrs = self.build_attrs(attrs, type='checkbox', name=name)
+		if self.check_test(value):
+		    final_attrs['checked'] = 'checked'
+		if not (value is True or value is False or value is None or value == ''):
+		    final_attrs['value'] = force_text(value)
+		return format_html()
+
+
+class CheckboxField(BooleanField):
+		    widget = CheckboxWidget
+		    def __init__(self, *args, **kwargs):
+		        super(CheckboxField, self).__init__(*args, **kwargs)
+
+		
+	# model=Student 
+	# 	template_name = 'students/students_list.html'
+	# 	def __init__(self,check_test):
+	# 		checkbox= Checkbox()
+	# 		super(Checkbox, self).__init__(*args, **kwargs)
+	# 		
+		
 ''''
 class StudentUpdateForm(ModelForm):
 	class Meta: # determine features of model
@@ -42,6 +69,7 @@ class StudentUpdateForm(ModelForm):
 			)
 '''
 
+		
 class StudentUpdateView(UpdateView):
 	model= Student
 	template_name = 'students/students_edit.html'
