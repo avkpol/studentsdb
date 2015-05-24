@@ -2,6 +2,7 @@
 from django.contrib import admin
 from django.core.urlresolvers import reverse
 from .models.students import Student
+from .models.monthjournal import MonthJournal 
 from .models.groups import Group
 from .models.studexam import Studexam
 from django.forms import ModelForm, ValidationError
@@ -48,4 +49,5 @@ class StudentAdmin(admin.ModelAdmin):
 admin.site.register(Student, StudentAdmin)
 admin.site.register(Group)
 admin.site.register(Studexam)
+admin.site.register (MonthJournal)
 
