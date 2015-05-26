@@ -63,24 +63,25 @@ class JournalView(TemplateView):
 			days = []
 			for day in range (1, number_of_days+1):
 				days.append({
-					'day': day,
-					'present':journal and getattr(journal, 'present_day%d' %day, False)or False,
-					'date':date(myear, mmonth, day).strftime(
-						'%Y-%m-%d'),
+				'day': day,
+				'present':journal and getattr(journal, 'present_day%d' %day, False)or False,
+				'date':date(myear, mmonth, day).strftime(
+					'%Y-%m-%d'),
 				})
 				# prepare metadata for current student
-				students.append({
-					'fullname': u'%s %s' % (student.last_name, student.first_name),
-					'days':days,
-					'id':student.id,
-					'update_url':update_url,
+			students.append({
+				'fullname': u'%s %s' % (student.last_name, student.first_name),
+				'days':days,
+				'id':student.id,
+				'update_url':update_url,
 				})
 			# apply pagination, 10 students per page
-			context=paginate(students, 5,self.request, context, var_name='students')
+		context=paginate(students, 5,self.request, context,
+ 			var_name='students')
 			
 			# finally return updated context 
 			# with paginated students
-			return context	
+		return context	
 		
 		
 		

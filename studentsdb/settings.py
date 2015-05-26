@@ -18,6 +18,9 @@ TEMPLATE_CONTEXT_PROCESSORS = global_settings.TEMPLATE_CONTEXT_PROCESSORS + (
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
+TEMPLATE_DIRS = (
+	'/data/work/virtualenv/studentsdb/src/studentsdb/students/templates/students',
+)	
 
 PORTAL_URL = 'http://localhost:8000'
 
