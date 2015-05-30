@@ -1,6 +1,6 @@
 {% extends "students/base.html" %}
 
-{% include 'students/pagination.html' %}
+
 
 {% load static from staticfiles %}
 
@@ -76,7 +76,10 @@
 <!-- End Students Listing -->
 {% if students.has_other_pages %}
 
-{% include 'students/pagination.html' %}
+{% block pagination %}
+{% endblock %}
+
+
 
 <!-- {% with order_by=request.GET.order_by reverse=request.GET.reverse %}
 <nav>
