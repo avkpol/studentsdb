@@ -9,7 +9,7 @@ from django.views.generic import UpdateView, DeleteView
 from django.forms import ModelForm
 
 class GroupDeleteView(DeleteView):
-	model=Group
+	model = Group
 	template_name = 'students/group_delete.html'
 	def get_success_url(self):
 		return u'%s?status_message= Групу успішно видалено!'% reverse('groups')
