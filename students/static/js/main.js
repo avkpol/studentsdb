@@ -111,7 +111,7 @@ function initEditStudentForm(form, modal) {
 			return false;
 		},
 		'success': function(data,status,xhr) {
-			var html = $(data), newform =html.find('#content-column form');
+			var html = $(data('a.student_list.html/#student.id')), newform =html.find('#content-column form');
 			//copy alert to modal window
 			modal.find('.modal-body').html(html.find('.alert'));
 			
@@ -125,7 +125,7 @@ function initEditStudentForm(form, modal) {
 				// if no form, it means success and we need to reload page // to get updated students list;
 				// reload after 2 seconds, so that user can read
 				// success message
-				setTimeout(function(){location.reload(true);}, 500);
+				setTimeout(function(){location.reload(true);}, 2000);
 			}
 		}
 	});
