@@ -2,18 +2,23 @@ from django.conf.urls import patterns, include, url
 from django.contrib import admin
 from students.views.students import StudentUpdateView
 from students.views.students import StudentDeleteView
+from students.views.students import StudentAddView
 from students.views.groups import GroupDeleteView
+from students.views.journal import JournalView
 urlpatterns = patterns('',
     # Students urls
-    url(r'^$', 'students.views.students.students_list', name='home'),
-    url(r'^students/add/$', 'students.views.students.students_add',
-         name='students_add'),
+    url(r'^$', 'students.views.students.students_list', name ='home'),
+	url(r'^students/add/$',
+		StudentAddView.as_view(),
+		name ='students_add'),
+    # url(r'^students/add/$', 'students.views.students.students_add',
+    #          name='students_add'),
 	url(r'^students/(?P<pk>\d+)/edit/$',
 		StudentUpdateView.as_view(),
-		name='students_edit'),
+		name = 'students_edit'),
 	url(r'^students/(?P<pk>\d+)/delete/$',
 		StudentDeleteView.as_view(),
-		name= 'students_delete'),
+		name = 'students_delete'),
     # url(r'^students/(?P<sid>\d+)/edit/$',
     #          'students.views.students.students_edit',
     #          name='students_edit'),
@@ -31,7 +36,7 @@ urlpatterns = patterns('',
         name='group_delete'),
          
          
-    #Journal urls
+    # Exam urls
     url(r'^studexam/$', 'students.views.studexam.exam_list', name='studexam'),
     url(r'^studexam/add/$', 'students.views.studexam.studexam_add',
          name='studexam_add'),
@@ -40,11 +45,14 @@ urlpatterns = patterns('',
 #    url(r'^groups/(?P<gid>\d+)/delete/$', 'students.views.groups.groups_delete',
 #         name='groups_delete'),
 #         
-    url(r'^studexam/edit/$', 'students.views.studexam.studexam_edit',
-         name='studexam_edit'),
-#    url(r'^groups/(?P<gid>\d+)/delete/$', 'students.views.groups.groups_delete',
-#         name='groups_delete'),
-    # Contact Admin Form
+  
+   
+    # Journal urls
+    url(r'^journal/(?P<pk>\d+)?/?$', JournalView.as_view(), name='journal'),
+
+
+
+ # Contact Admin Form
    
     url(r'^contact-admin/$', 'students.views.contact_admin.contact_admin',
 	     name='contact_admin'),   

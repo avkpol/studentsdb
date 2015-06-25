@@ -36,10 +36,10 @@
 			{% endif %}
 			</th>
 			<th>
-			<a href="{% url "studexam" %}?order_by=group_exam{% if order_by == 'group_exam' and reverse != '1' %}&amp;reverse=1{% endif %}">
+			<a href="{% url "studexam" %}?order_by=student_group{% if order_by == 'student_group' and reverse != '1' %}&amp;reverse=1{% endif %}">
 			 Група
-			{% if order_by == 'group_exam' and reverse != '1' %}&uarr;
-			{% elif order_by == 'group_exam' and reverse == '1' %}&darr;
+			{% if order_by == 'student_group' and reverse != '1' %}&uarr;
+			{% elif order_by == 'student_group' and reverse == '1' %}&darr;
 			{% endif %}
 			</th>
 			<th>Дії</th>
@@ -55,7 +55,7 @@
       <td><a href="{% url "studexam" %}">{{ studexam.subject }}</td>
       <td><a href="{% url "studexam_edit" %}">{{ studexam.exam_date }}</td>
       <td><a href="{% url "studexam_edit" %}">{{ studexam.tutor }}</td>
-      <td><a href="{% url "studexam_edit" %}">{{ studexam.group_exam }}</td>
+      <td><a href="{% url "studexam_edit" %}">{{ studexam.student_group }}</td>
      
       <td>
         <div class="btn-group">

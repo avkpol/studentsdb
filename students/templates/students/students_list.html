@@ -1,5 +1,7 @@
 {% extends "students/base.html" %}
 
+
+
 {% load static from staticfiles %}
 
 {% block meta_title %}Студенти{% endblock meta_title %}
@@ -8,7 +10,7 @@
 
 {% block content %}
 <a href="{% url "students_add" %}" class="btn btn-primary">Додати Студента</a>
-<a href="{% url "students_add" %}" class="btn btn-info">Видалити Студента</a>
+
 <!-- Start Students Listing -->
 <table class="table">
 	{% with order_by=request.GET.order_by reverse=request.GET.reverse %}
@@ -57,11 +59,11 @@
       		{% endif %}
       		</td>
 		
-        <td><a href="{% url "students_edit" student.id %}">{% if student.last_name %}
+        <td><a href="{% url "students_edit" student.id %}" class="student-edit-form-link">{% if student.last_name %}
 				<input type="checkbox" name="checkbox_{{last_name}}"/> {{ student.last_name }}<br />
 				{% endif %}
 		</td>
-      <td><a href="{% url "students_edit" student.id %}">{{ student.first_name }}</td>
+      <td><a href="{% url "students_edit" student.id %}" class="student-edit-form-link">{{ student.first_name }}</td>
       <td>{{ student.ticket }}</td>
       <td>
         <div class="btn-group">
@@ -70,8 +72,8 @@
             <span class="caret"></span>
           </button>
           <ul class="dropdown-menu" role="menu">
-            <li><a href="{% url "students_edit" student.id %}">Редагувати</a></li>
-            <li><a href="/journal/{{ student.id }}">Відвідування</a></li>
+            <li><a href="{% url "students_edit" student.id %}" class="student-edit-form-link" >Редагувати</a></li>
+            <li><a href="{% url "journal" student.id %}">Відвідування</a></li>
             <li><a href="{% url "students_delete" student.id %}">Видалити</a></li>
           </ul>
         </div>
@@ -83,9 +85,14 @@
 </table>
 <!-- End Students Listing -->
 {% if students.has_other_pages %}
-{% with order_by=request.GET.order_by reverse=request.GET.reverse %}
-<nav>
 
+{% block pagination %}
+{% endblock %}
+
+
+
+<!-- {% with order_by=request.GET.order_by reverse=request.GET.reverse %}
+<nav>
   <ul class="pagination">
     <li><a href="{% url "home" %}?page=1&amp;order_by={{ order_by }}&amp;reverse={{ reverse }}">&laquo;</a>
     </li>
@@ -100,7 +107,8 @@
     
   </ul>
 </nav>
-{% endwith %}
+{% endwith %} -->
+
 {% endif %} 
         
 {% endblock content %}
