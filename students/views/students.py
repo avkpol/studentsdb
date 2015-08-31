@@ -18,6 +18,21 @@ from django.forms.widgets import CheckboxInput
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Submit
 from crispy_forms.bootstrap import FormActions
+# from .students.search_indexes import StudentIndex
+
+# def last_name_search(request, last_name):  
+#     context = dict(last_name = last_name)
+#     context['students'] = StudentIndex.objects.filter(last_name=last_name)[:5]
+#     return render(request, 'base.html', context)
+
+
+# def search(request):
+#     if 'q' in request.GET:
+#         message = 'You searched for: %r' % request.GET['q']
+#     else:
+#         message = 'You submitted an empty form.'
+#     return HttpResponse(message)
+
 
 class CheckboxWidget(CheckboxInput):
 	def render(self, name, value ,attrs=None):
@@ -105,8 +120,8 @@ class StudentUpdateForm(ModelForm):
 		self.helper.form_class = 'form-horizontal'
 		
 		# set form field properties
-		self.helper.help_text_inline =True
-		self.helper.html5_required =True
+		self.helper.help_text_inline = True
+		self.helper.html5_required = True
 		self.helper.label_class = 'col-sm-2 control-label'
 		self.helper.field_class = 'col-sm-10'
 		
@@ -134,14 +149,14 @@ class StudentUpdateView(UpdateView):
 			return super(StudentUpdateView, self).post(request, *args, **kwargs)
 			
 class StudentDeleteView(DeleteView):
-	model=Student
+	model = Student
 	template_name = 'students/students_confirm_delete.html'
 	def get_success_url(self):
-		return u'%s?status_message= Студента успішно видалено!'% reverse('home')
+		return u'%s?status_message = Студента успішно видалено!'% reverse('home')
 	def post(self, request, *args, **kwargs):
 		if request.POST.get('cancel_button'):
 			return HttpResponseRedirect(
-				u'%s?status_message=Видалення студента скасовано!'
+				u'%s?status_message = Видалення студента скасовано!'
 				% reverse('home'))
 		else:
 			return super(StudentDeleteView, self).post(request, *args, **kwargs)

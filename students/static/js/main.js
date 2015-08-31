@@ -15,6 +15,7 @@ function initJournal() {
       },
       'beforeSend': function(xhr, settings){
         indicator.show();
+     
       },
       'error': function(xhr, status, error){
         alert(error);
@@ -29,6 +30,7 @@ function initJournal() {
 
 function initEditStudentPage() {
 	$('a.student-edit-form-link').click(function(event){
+		
 		var link = $(this);
 		$.ajax ({
 			'url': link.attr('href'),
@@ -50,8 +52,13 @@ function initEditStudentPage() {
 				// init our edit form
 				initEditStudentForm(form, modal);
 				
-				
-				
+				// setup and show modal window finally and avoid ocassionally modalwindow closing
+				modal.modal({
+					'keyboard': false,
+					'backdrop': false,
+					'show' : true
+			});
+								
 				//setup and show modal window finally
 				modal.modal('show');
 			},
@@ -111,25 +118,67 @@ function initEditStudentForm(form, modal) {
 			return false;
 		},
 		'success': function(data,status,xhr) {
-			var html = $(data('a.student_list.html/#student.id')), newform =html.find('#content-column form');
+			var html = $(data), newform =html.find('#content-column form');
 			//copy alert to modal window
 			modal.find('.modal-body').html(html.find('.alert'));
 			
 			//copy form to modal if we found it in server response
 			if (newform.length > 0) {
+				
 				modal.find('.modal-body').append(newform);
 				
 				// initialize form fields and buttons
-				initEditStudentForm(newform, modal);	
+				initEditStudentForm(newform, modal);
+					
 			} else {
-				// if no form, it means success and we need to reload page // to get updated students list;
+			
+				// if no form, it means success and we need to reload page 
+				// to get updated students list;
 				// reload after 2 seconds, so that user can read
 				// success message
-				setTimeout(function(){location.reload(true);}, 2000);
+				setTimeout(function(){location.reload(true);}, 1800);
+				
 			}
 		}
 	});
 }
+
+
+// function updatePageContext() {
+//     var url = window.location.href;  
+//     $.ajax({
+//         'url': url,
+//         'dataType': 'html',
+//         'type': 'get',
+//         'success': function(data, status, xhr){
+//             // check if we got successfull response from the server
+//             if (status != 'success') {
+//                 alert('Ошибка на сервере, попробуйте пожалуйста позже.');
+//                 return false;
+//             }
+//             // update modal window with arrived content from the server
+//             var table = $('.table'), newpage = $(data), newtable = newpage.find('.table');
+//             table.html(newtable);
+//             initEditStudentPage();
+//         },
+// 
+//         'error': function(){
+//             alert('Ошибка на сервере, попробуйте пожалуйста позже.');
+//             return false;
+//         }
+//     });
+//     return false;
+// }
+
+
+// function loader() {
+// 	
+// i = 0;
+// setInterval(function() {
+//   i = ++i % 4;
+//   $("#loading").html("Loading "+Array(i+1).join("."));
+//    }, 800);
+// }
 
 
 $(document).ready(function(){
@@ -137,6 +186,7 @@ $(document).ready(function(){
   initGroupSelector();
   initDateFields();
   initEditStudentPage();
+  loader();
   
 
 });

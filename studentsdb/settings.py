@@ -19,9 +19,18 @@ TEMPLATE_CONTEXT_PROCESSORS = global_settings.TEMPLATE_CONTEXT_PROCESSORS + (
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
-TEMPLATE_DIRS = (
-	'/data/work/virtualenv/studentsdb/src/studentsdb/students/templates/students',
-)	
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [os.path.join(BASE_DIR,'templates'),'/data/work/virtualenv/studentsdb/src/studentsdb/students/templates/students',
+                    '/data/work/virtualenv/studentsdb/src/studentsdb/students/templates/search'],
+        'APP_DIRS': True,
+    }
+]
+# TEMPLATE_DIRS = (
+# 	'/data/work/virtualenv/studentsdb/src/studentsdb/students/templates/students',
+
+# )	
 
 PORTAL_URL = 'http://localhost:8000'
 
@@ -31,7 +40,7 @@ ADMIN_EMAIL='avkpol@yandex.ru'
 EMAIL_HOST= 'smtp.gmail.com'
 EMAIL_PORT= '465'
 EMAIL_HOST_USER='andriykrav@gmail.com'
-EMAIL_HOST_PASSWORD='Grysha1994'    
+EMAIL_HOST_PASSWORD='********'    
 EMAIL_USE_TLS=False
 EMAIL_USE_SSL=True
 
@@ -60,6 +69,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'haystack',
     'crispy_forms',
     'students',
 )
@@ -110,6 +120,15 @@ STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, '..', 'media')
 
+HAYSTACK_CONNECTIONS = {
+    'default': {
+        'ENGINE': 'haystack.backends.elasticsearch_backend.ElasticsearchSearchEngine',
+        'URL': 'http://127.0.0.1:9200/',
+        'INDEX_NAME': 'students',
+    },
+}
 
+# updates table everytime you add new record
+HAYSTACK_SIGNAL_PROCESSOR = 'haystack.signals.RealtimeSignalProcessor'
 
 

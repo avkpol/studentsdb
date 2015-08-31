@@ -2,6 +2,7 @@
   <!DOCTYPE html>
   <html lang="uk">
   <head>
+	
     <meta charset="UTF-8"/>
     <title>Сервіс Обліку Студентів - {% block meta_title %}{% endblock meta_title %}</title>
     <meta name="description" value="Система Обліку Студентів Навчального Закладу" />
@@ -10,18 +11,56 @@
           href="https://cdn.jsdelivr.net/bootstrap/3.3.0/css/bootstrap.min.css">
     <link rel="stylesheet"
 		  href="http://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.0.0/css/bootstrap-datetimepicker.min.css">
-    
+    	
+    	
+	<link rel="stylesheet"
+	          href="{{ PORTAL_URL }}{% static "css/pace-theme-loading-bar.tmpl.css" %}">
+		
     <link rel="stylesheet"
           href="{{ PORTAL_URL }}{% static "css/main.css" %}">
     {% block extra_css %}{% endblock extra_css %}
   </head>
  <body>
   <!-- Start Container -->
+  
   <div class="container">
     <!-- Start Header -->
+
+
     <div class="row" id="header"> 
       <div class="col-xs-8">
         <h1>Сервіс Обліку Студентів</h1>
+
+
+
+  {% include 'search/search.html' %}
+
+<!-- 
+<form type="get" action=".">
+    <input type="text" name="q">
+    <button type="submit">Search</button>
+</form>
+ {% if query %}
+        <h3>Results</h3>
+        <p>Showing results for: &quot;{{ query }}&quot; </p>
+        <li>
+        {% for result in students.object.fieldname %}
+
+                
+                Student last name: {{ result.last_name }}<br />
+                
+        {% empty %}
+            <p>No results found for {{ query }}.</p>
+        {% endfor %}
+        </li>
+    {% else %}
+        {# Show some example queries to run, maybe query syntax, something else? #}
+    {% endif %}
+ -->
+
+
+
+      
       </div>
       <div class="col-xs-4" id="group-selector">
         <strong>Група:</strong>
@@ -37,6 +76,12 @@
     </div>
     <!-- End Header -->
     <!-- Start subheader -->
+
+
+
+
+
+
     <div class="row" id="sub-header"> 
       <div class="col-xs-12">
         <ul class="nav nav-tabs" role="tablist">
@@ -96,17 +141,20 @@
   <!-- Javascripts Inclusion -->
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
   <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery.form/3.51/jquery.form.min.js"></script>
+  <script src="http://fgnass.github.io/spin.js/spin.js"></script>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.3/moment-with-locales.min.js"></script>
   <script> moment.locale('uk'); </script>
+
   <script src="{% static "js/jquery.cookie.js" %}"></script>
   <script src="https://cdn.jsdelivr.net/bootstrap/3.3.0/js/bootstrap.min.js"></script>
   <script src="http://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.0.0/js/bootstrap-datetimepicker.min.js"></script>
-     
-  <script src="{% static "js/main.js" %}"></script>
-     
+  
+  <script src="{% static "js/main.js" %}"></script>  
+  <script src="{% static "js/pace.js" %}"></script>
+   
 
  
   {% block extra_js %}{% endblock extra_js %}
-</body
+</body>
 </html>

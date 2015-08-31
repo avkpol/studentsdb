@@ -1,14 +1,24 @@
 from django.conf.urls import patterns, include, url
 from django.contrib import admin
+
 from students.views.students import StudentUpdateView
 from students.views.students import StudentDeleteView
 from students.views.students import StudentAddView
 from students.views.groups import GroupDeleteView
 from students.views.journal import JournalView
+# from students.views.students import last_name_search
+
+
+
+
+
 urlpatterns = patterns('',
     # Students urls
-    url(r'^$', 'students.views.students.students_list', name ='home'),
-	url(r'^students/add/$',
+       
+    url(r'^$', 'students.views.students.students_list', name ='home'),# main page url
+	
+
+    url(r'^students/add/$',
 		StudentAddView.as_view(),
 		name ='students_add'),
     # url(r'^students/add/$', 'students.views.students.students_add',
@@ -50,7 +60,8 @@ urlpatterns = patterns('',
     # Journal urls
     url(r'^journal/(?P<pk>\d+)?/?$', JournalView.as_view(), name='journal'),
 
-
+   
+    
 
  # Contact Admin Form
    
@@ -60,6 +71,12 @@ urlpatterns = patterns('',
          
          
     url(r'^admin/', include(admin.site.urls)),
+
+
+    #haystack search url
+    (r'^search/', include('haystack.urls')),
+    # url(r'^(?P<last_name>\S+)/$', 'students.views.students.last_name_search'),
+
 	
 )
 

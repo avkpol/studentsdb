@@ -7,6 +7,7 @@ from .models.groups import Group
 from .models.studexam import Studexam
 from django.forms import ModelForm, ValidationError
 
+
 class StudentFormAdmin(ModelForm):
 	def clean_student_group(self):
 		"""Check if student is leader in any group.
@@ -24,7 +25,7 @@ class GroupFormAdmin(ModelForm):
 			raise ValidationError(u'Студента не можна обрати')
 		return self.cleaned_data['student_group']
 	
-def copy_student(StudentAdmin, request, querryset):
+def copy_student(StudentAdmin, request, queryset):
 	
     copy_student.short_description='Скопіювати обрані студенти'
 	
